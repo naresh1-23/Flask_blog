@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+{% block content %}
+{% for post in posts %}
+
+<div id = '{{ post.id }}' class="card card_post" style="width: 50%;">
+    <div class="card-body" style="border: solid 2px;">
+      <h5 class="card-title">{{ post.author.username }}</h5>
+      <img src="{{ url_for('static', filename='post/'+post.image_file)  }}" class="card-img-top" alt="...">
+      <p class="card-text">{{ post.caption }}</p>
+      <p class="card-text">{{ post.date_posted.strftime('%Y-%m-%d') }}</p>
+    </div>
+    
+    <div class="card-body">
+      {% if current_user.is_authenticated %}
+        <form action="{{ url_for('home') }}" method="POST">
+          <input type="text" class="argument" name = "caption" value = "{{ post.id }}">
+          <h5 class="card-title">{{ like.query.filter_by(post_id = post.id).count() }}</h5>
+          {% if like.query.filter_by(author = current_user ,poster = post).count() == 0 %}
+        <button type="submit" class="btn btn-primary">Like</button>
+        {% else %}
+        <button type="submit" class="btn btn-primary">Unlike</button>
+        {% endif %}</form><br>
+        <a href="{{ url_for('comment', post_id = post.id) }}"><button type="button" class="btn btn-primary">Comment</button></a>
+      {% endif %}
+    </div>
+</div><br><hr style="width: 50%; margin-left: 25%;"><br>
+{% endfor %}>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'layout.html' %}
+{% block content %}
+<ul class="list-group">
+    {% for user in users.query.all() %}
+    {% if user.id != current_user.id %}
+    <li class="list-group-item">{{ user.username }}</li>
+    {% endif %}
+    {% endfor %}
+  </ul>
+{% endblock content %}

@@ -1,0 +1,46 @@
+
+{% extends 'layout.html' %}
+{% block content %}
+<div class="container main">
+    <div class="row">
+        <div class="col">
+            <form  method="POST" action="" enctype="multipart/form-data">
+                {{ form.hidden_tag() }}
+                <div class="login">
+                    <div class="row mb-3">
+                        {{ form.caption.label(class="col-sm-2 col-form-label") }}
+                        <div class="col-sm-6">
+                            {% if form.caption.errors %}
+                            {{ form.caption(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.caption.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                            {% else %}
+                                {{form.caption(class="form-control")}}
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        {{ form.picture.label(class="col-sm-2 col-form-label") }}
+                        <div class="col-sm-6">
+                            {% if form.picture.errors %}
+                            {{ form.picture(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.picture.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                            {% else %}
+                                {{form.picture(class="form-control")}}
+                            {% endif %}
+                        </div>
+                    </div>
+                    {{ form.submit(class="btn btn-primary") }}
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

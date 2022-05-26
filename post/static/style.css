@@ -1,0 +1,54 @@
+.main{
+    color: black;
+    padding-top: 50PX;
+    margin-top: 5%;
+    padding-left: 15%;
+    padding-bottom: 50PX;
+    background-color: rgb(209, 209, 209);
+    border-radius: 25px;
+}
+.account-img {
+    height: 125px;
+    width: 125px;
+    margin-right: 20px;
+    margin-bottom: 16px;
+    float: left;
+  }
+  .comment-img {
+    height: 50px;
+    width: 50px;
+    margin-right: 20px;
+    margin-bottom: 16px;
+    float: left;
+  }
+
+.card_post{
+    margin-left: 25%;
+    margin-top: 25px;
+}
+.argument{
+    visibility: hidden;
+}
+.navbar {
+    background-color: #3a24f0;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    position: sticky;
+    top: 0px;
+    z-index: 1;
+  }
+  .navbar a {
+    color: white;
+    text-decoration: none;
+    margin: 0px 20px;
+    font-size: 1.3em;
+
+  }
+
+  .commentbox{
+    width: 50%;
+  }
+
+  
+  
